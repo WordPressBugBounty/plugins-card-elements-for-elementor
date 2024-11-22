@@ -2,9 +2,9 @@
 Contributors: techeshta, alkesh7, vastarpara, hadihirpara
 Tags: card elements module, free elementor addon, custom profile card widget, custom testimonial card widget, custom listing card widget
 Requires at least: 4.4
-Tested up to: 6.6.1
+Tested up to: 6.7
 Requires PHP: 8.0
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,17 +13,17 @@ Showcase useful elements with card style for elementor page builder.
 == Description ==
 
 Card Elements for Elementor is an effective and user-friendly way to showcase your team profiles (our team), testimonials (your client's reviews), recipe, listing, tours WordPress posts in multiple ways, and unique card-style/design. It is a flexible and straightforward way to add new elements/widgets to Elementor Page Builder. Plus, it's one of the best plugins for a WordPress website to attract more visitors. It's easy to manage for beginners to website developers.
- 
+
 Card Elements for Elementor plugin bundled with precisely designed 5+ most useful elements to showcase/decorate your website with card styling. We will keep adding more in future versions.
- 
+
 If you are looking for a card presentation design, then Card Elements for Elementor is the best solution you have never seen above. Our goal is to deliver the ultimate experience to our loyal users.
 
 **[View Demo](https://elementor.techeshta.com/card-elements/?utm_medium=wp.org&utm_source=wordpressorg&utm_campaign=readme&utm_content=cardelementsforelementor) | [Documentation](https://www.techeshta.com/docs/card-elements-for-elementor/?utm_medium=wp.org&utm_source=wordpressorg&utm_campaign=readme&utm_content=techeshta)**
 
 == Where is the Card Elements for Elementor plugin useful? ==
- 
+
 Card Elements for Elementor plugin useful for all WordPress websites. Below is one small list for which purposes you can start using the Card Elements plugin.
- 
+
 * You can decorate your blog post in various styles.
 * Showcase your customer reviews in attractive ways.
 * Decorate your tour and travel packages differently.
@@ -77,7 +77,7 @@ Pro version overcomes your limitations with a lite version of Card Elements.
 * 5  Unique Listing Card Styles
 * CodeCanyon Quality Code Standards
 * More Card Styles (Coming Soon)
-	
+
 **[Buy Card Elements Pro for Elementor on CodeCanyon](https://1.envato.market/CEPE)**
 
 ### Technical Support
@@ -98,9 +98,9 @@ We're active for any support issues and feature suggestions. So, I hope you will
 1. Go to Plugins >**Add New**
 2. Search for **Card Elements for Elementor**
 3. Click on **Install Now** button
-4. Click on **Activate Now** After Installed in the Backend 
+4. Click on **Activate Now** After Installed in the Backend
 
-**From WordPress.org** 
+**From WordPress.org**
 
 1. Download **[Card Elements for Elementor](https://downloads.wordpress.org/plugin/card-elements-for-elementor.zip)**
 2. Upload the **'card-elements-for-elementor'** folder to the /wp-content/plugins/ directory
@@ -134,6 +134,12 @@ Please reach out via the official [support forum](https://wordpress.org/support/
 5. Post Card - Card Style 2
 
 == Changelog ==
+
+= 1.2.5 =
+Release Date: November 22nd, 2024
+
+* Updated: Latest WordPress 6.7 compatibility Check
+* Updated: Latest Elementor 3.25.6 compatibility Check
 
 = 1.2.4 =
 Release Date: September 7th, 2024
