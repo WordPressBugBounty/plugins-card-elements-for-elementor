@@ -2,9 +2,9 @@
 Contributors: techeshta, alkesh7, vastarpara, hadihirpara
 Tags: card elements module, free elementor addon, custom profile card widget, custom testimonial card widget, custom listing card widget
 Requires at least: 4.4
-Tested up to: 6.7
+Tested up to: 6.7.1
 Requires PHP: 8.0
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,11 @@ Please reach out via the official [support forum](https://wordpress.org/support/
 
 == Changelog ==
 
+= 1.2.6 =
+Release Date: February 3rd, 2025
+
+* Fixed: Deprecated _register_controls() function for Elementor 3.27 compatibility
+
 = 1.2.5 =
 Release Date: November 22nd, 2024
 
@@ -149,7 +154,7 @@ Release Date: September 7th, 2024
 = 1.2.3 =
 Release Date: August 6th, 2024
 
-* Fix tag title
+* Fixed: Tag title issue
 
 = 1.2.2 =
 Release Date: July 16th, 2024
@@ -160,58 +165,58 @@ Release Date: July 16th, 2024
 = 1.2.1 =
 Release Date: May 15th, 2024
 
-* [Resolved] Profile Card Description is not allowing HTML tags
+* Fixed: Profile Card Description is not allowing HTML tags
 
 = 1.2 =
 Release Date: April 11th, 2024
 
-* [Updated] Latest WordPress 6.5.2 compatibility Check
-* [Resolved] Security, Performance, and Accessibility issue
+* Updated: Latest WordPress 6.5.2 compatibility Check
+* Fixed: Security, Performance, and Accessibility issue
 
 = 1.1.9 =
 Release Date: October 5th, 2023
 
-* [Updated] Latest WordPress 6.3.1 compatibility Check
+* Updated: Latest WordPress 6.3.1 compatibility Check
 
 = 1.1.8 =
 Release Date: July 17th, 2023
 
-* [Fixed] PHP Warning Resolved in Profile Card
+* Fixed: PHP warning resolved in Profile Card
 
 = 1.1.7 =
 Release Date: December 8th, 2022
 
-* [Updated] Latest WordPress 6.1 compatibility Check
+* Updated: Latest WordPress 6.1 compatibility Check
 
 = 1.1.6 =
 Release Date: May 25th, 2022
 
-* [Updated] Latest WordPress 6.0 compatibility Check
+* Updated: Latest WordPress 6.0 compatibility Check
 
 = 1.1.5 =
 Release date: March 29th, 2022
 
-* [Updated] Latest WordPress 5.9 compatibility Check
+* Updated: Latest WordPress 5.9 compatibility Check
 
 = 1.1.4 =
 Release date: March 13th, 2021
 
-* [Updated] Latest WordPress 5.7 compatibility Check
+* Updated: Latest WordPress 5.7 compatibility Check
 
 = 1.1.3 =
 Release Date: January 16th, 2021
 
-* [Updated] Latest WordPress compatibility Check
+* Updated: Latest WordPress compatibility Check
 
 = 1.1.2 =
 Release Date: August 8th, 2020
 
-* [Updated] Latest WordPress compatibility Check
+* Updated: Latest WordPress compatibility Check
 
 = 1.1.1 =
 Release Date: March 31st, 2020
 
-* [Updated] Latest WordPress compatibility Check
+* Updated: Latest WordPress compatibility Check
 
 = 1.1 =
 Release Date: August 28th, 2019

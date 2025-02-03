@@ -30,7 +30,7 @@ class Tour_Card_Elementor_Widget extends Widget_Base {
     /*
      * Adding the controls fields for the tour card
      */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         /*
          * Start tour card controls fields

@@ -4,10 +4,10 @@
  * Description: Showcase useful card elements like display team profiles, testimonials and post with card style for Elementor page builder.
  * Plugin URI: https://www.techeshta.com/product/card-elements-for-elementor/
  * Author: Techeshta
- * Version: 1.2.5
+ * Version: 1.2.6
  * Author URI: https://www.techeshta.com
- * Elementor tested up to: 3.25.6
- * Elementor Pro tested up to: 3.22.1
+ * Elementor tested up to: 3.27.2
+ * Elementor Pro tested up to: 3.27.0
  *
  * Text Domain: card-elements-for-elementor
  */

@@ -27,7 +27,7 @@ class Listing_Card_Elementor_Widget extends Widget_Base {
         return ['card-elements'];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         /* Start listing card controls fields */
         $this->start_controls_section(
