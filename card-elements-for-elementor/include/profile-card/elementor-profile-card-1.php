@@ -19,7 +19,7 @@
 
                         $link_key = 'link_' . $index;
 
-                        $this->add_render_attribute($link_key, 'href', $item['link']['url']);
+                        $this->add_render_attribute($link_key, 'href', esc_url($item['link']['url']));
 
                         if ($item['link']['is_external']) {
                             $this->add_render_attribute($link_key, 'target', '_blank');
