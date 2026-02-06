@@ -4,7 +4,7 @@
  * Description: Showcase useful card elements like display team profiles, testimonials and post with card style for Elementor page builder.
  * Plugin URI: https://www.techeshta.com/product/card-elements-for-elementor/
  * Author: Techeshta
- * Version: 1.2.8
+ * Version: 1.2.9
  * Author URI: https://www.techeshta.com
  * Elementor tested up to: 3.28.3
  * Elementor Pro tested up to: 3.28.3
@@ -50,19 +50,19 @@ add_action('elementor/widgets/widgets_registered', 'card_elements_widget_registe
 if (!function_exists('card_elements_widget_script_register')) {
 
     function card_elements_widget_script_register() {
-	// Register and call Common style        
+	// Register and call Common style
 	wp_register_style('cee-common-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/common-card-style.css', array(), '1.0', false);
         wp_enqueue_style('cee-common-card-style');
 
-	// Register and call Profile card style        
+	// Register and call Profile card style
 	wp_register_style('cee-profile-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/profile-card-style.css', array(), '1.0', false);
         wp_enqueue_style('cee-profile-card-style');
 
-	// Register and call Testimonial card style        
+	// Register and call Testimonial card style
 	wp_register_style('cee-testimonial-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/testimonial-card-style.css',array(), '1.0', false);
         wp_enqueue_style('cee-testimonial-card-style');
 
-	// Register and call Post card style        
+	// Register and call Post card style
 	wp_register_style('cee-post-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/post-card-style.css', array(), '1.0', false);
         wp_enqueue_style('cee-post-card-style');
 
@@ -82,7 +82,7 @@ if (!function_exists('card_elements_widget_script_register')) {
             wp_register_style('font-awesome-5-all-css', ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/all.min.css', array());
             wp_enqueue_style('font-awesome-5-all-css');
         }
-        
+
         if (!wp_style_is('elementor-frontend-css', 'enqueued')) {
             wp_enqueue_style( 'elementor-frontend-css', ELEMENTOR_ASSETS_URL . 'css/frontend.min.css', array() );
             wp_enqueue_style('elementor-frontend-css');
@@ -105,7 +105,7 @@ if (!function_exists('cee_elements_widget_script_backend')) {
             wp_register_style('font-awesome-5-all-css', ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/all.min.css', array());
             wp_enqueue_style('font-awesome-5-all-css');
         }
-        
+
         if (!wp_style_is('elementor-frontend-css', 'enqueued')) {
             wp_enqueue_style( 'elementor-frontend-css', ELEMENTOR_ASSETS_URL . 'css/frontend.min.css', array() );
             wp_enqueue_style('elementor-frontend-css');

@@ -2,9 +2,9 @@
 Contributors: techeshta, alkesh7, vastarpara, hadihirpara
 Tags: card elements module, free elementor addon, custom profile card widget, custom testimonial card widget, custom listing card widget
 Requires at least: 4.4
-Tested up to: 6.8
+Tested up to: 6.8.3
 Requires PHP: 8.0
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,12 @@ Please reach out via the official [support forum](https://wordpress.org/support/
 5. Post Card - Card Style 2
 
 == Changelog ==
+
+= 1.2.9 =
+Release date: October 10th, 2025
+
+* Fixed: Security and validation for social media link fields.
+* Updated: Latest WordPress 6.8.3 compatibility Check
 
 = 1.2.8 =
 Release date: April 22nd, 2025

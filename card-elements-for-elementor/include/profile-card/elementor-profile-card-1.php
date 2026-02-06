@@ -19,7 +19,9 @@
 
                         $link_key = 'link_' . $index;
 
-                        $this->add_render_attribute($link_key, 'href', esc_url($item['link']['url']));
+                        $trim_url = trim($item['link']['url'], '"');
+
+                        $this->add_render_attribute($link_key, 'href', esc_url($trim_url));
 
                         if ($item['link']['is_external']) {
                             $this->add_render_attribute($link_key, 'target', '_blank');
@@ -29,7 +31,7 @@
                             $this->add_render_attribute($link_key, 'rel', 'nofollow');
                         }
                         ?>
-                        <a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo esc_attr($this->get_render_attribute_string($link_key)); ?>>
+                        <a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo $this->get_render_attribute_string($link_key); ?>>
                             <span class="elementor-screen-only"><?php echo esc_html(ucwords($social)); ?></span>
                             <i class="<?php echo esc_attr($item['social']); ?>"></i>
                         </a>
