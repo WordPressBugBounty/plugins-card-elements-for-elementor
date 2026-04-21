@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Tour Card 1 -->
 
 <?php
@@ -24,7 +30,7 @@ use Elementor\Icons_Manager; ?>
                 if ($settings['tour_sale'] == "yes") { ?>
                     <div class="elementor-tour-sale-wrapper">
                         <span class="tour-sale-icon">
-                            <?php echo $sale_icon; ?>
+                            <?php echo wp_kses_post( $sale_icon ); ?>
                         </span>
                         <span class="tour-sale-text">
                             <?php echo esc_html($settings['tour_sale_text']); ?>
@@ -54,7 +60,7 @@ use Elementor\Icons_Manager; ?>
                     }
                     ?>
 
-                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo $icon1; ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_days']); ?> <?php esc_html_e('Days', 'card-elements-for-elementor') ?></p></li>
+                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo wp_kses_post( $icon1 ); ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_days']); ?> <?php esc_html_e('Days', 'card-elements-for-elementor') ?></p></li>
 
                     <?php
                     if ($settings['tour_person_icon']['value']) {
@@ -64,7 +70,7 @@ use Elementor\Icons_Manager; ?>
                     }
                     ?>
 
-                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo $icon2; ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_person']); ?> <?php esc_html_e('Persons', 'card-elements-for-elementor') ?></p></li>
+                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo wp_kses_post( $icon2 ); ?><?php echo $icon2; ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_person']); ?> <?php esc_html_e('Persons', 'card-elements-for-elementor') ?></p></li>
 
                     <?php
                     if ($settings['tour_guide_icon']['value']) {
@@ -74,7 +80,7 @@ use Elementor\Icons_Manager; ?>
                     }
                     ?>
 
-                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo $icon3; ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_guides']); ?> <?php esc_html_e('Guides', 'card-elements-for-elementor') ?></p></li>
+                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo wp_kses_post( $icon3 ); ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_guides']); ?> <?php esc_html_e('Guides', 'card-elements-for-elementor') ?></p></li>
                 </ul>
             </div>
 

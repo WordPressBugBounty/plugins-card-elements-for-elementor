@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Listing Card 1 -->
 <div class="listing-card-style-1">
     <div class="listing-main-container">
@@ -27,9 +33,9 @@
             </div>
             <?php
         } else {
-            ?> 
+            ?>
             <div class="listing-card-share" style="display: none;">
-            </div>                      
+            </div>
         <?php } ?>
     </div>
 </div>

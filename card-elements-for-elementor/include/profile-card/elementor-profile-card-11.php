@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <div class="profile-card-style-11" style="background-image: url(<?php echo esc_url($settings['profile_image']['url']); ?>);">
     <div class="triangle-div">
 	</div>
@@ -27,7 +33,7 @@
 					$this->add_render_attribute($link_key, 'rel', 'nofollow');
 				}
 				?>
-				<a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo $this->get_render_attribute_string($link_key); ?>>
+				<a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo esc_attr( $this->get_render_attribute_string( $link_key ) ); ?>>
 					<span class="elementor-screen-only"><?php echo esc_html(ucwords($social)); ?></span>
 					<i class="<?php echo esc_attr($item['social']); ?>"></i>
 				</a>

@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Post Card 2 -->
 <article class="grid-item column post-card-container">
     <div class="post-card-image post-card-box-radius post-module">

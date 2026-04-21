@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Profile Card 3 -->
 <div class="profile-card-style-3" style="background-image:url(<?php echo esc_url($settings['profile_background_image']['url']); ?>);">
     <div class="team-member elementor-content-background-color-wrapper">
@@ -6,7 +12,7 @@
         </div>
         <div class="team-member__info">
             <!-- Description -->
-            <p class="profile-description elementor-profile-description-wrapper"><?php echo $settings['profile_description']; ?></p>
+            <p class="profile-description elementor-profile-description-wrapper"><?php echo wp_kses_post( $settings['profile_description'] ); ?></p>
             <h4 class="profile-name elementor-profile-name-wrapper"><?php echo esc_attr($settings['name']); ?></h4>
             <p class="profile-position elementor-profile-position-wrapper"><?php echo esc_attr($settings['position']); ?></p>
         </div>
@@ -31,7 +37,7 @@
                         $this->add_render_attribute($link_key, 'rel', 'nofollow');
                     }
                     ?>
-                    <a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo $this->get_render_attribute_string($link_key); ?>>
+                    <a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo esc_attr( $this->get_render_attribute_string( $link_key ) ); ?>>
                         <span class="elementor-screen-only"><?php echo esc_html(ucwords($social)); ?></span>
                         <i class="<?php echo esc_attr($item['social']); ?>"></i>
                     </a>

@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Listing Card Pro -->
 <div class="testimonial-card-style-pro text-center">	
     <img src="<?php echo esc_url(CARD_ELEMENTS_ELEMENTOR_URL); ?>images/banner-pro.png" alt="<?php echo esc_attr('Card Elements Pro for Elementor', 'card-elements-for-elementor'); ?>">

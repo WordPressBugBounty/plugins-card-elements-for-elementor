@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <div class="post-card-style-6 card card3_style" style="background-image: url('<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>'); background-size: contain; background-repeat: no-repeat;">
 
     <div class="card-info-hover">

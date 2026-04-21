@@ -1,9 +1,14 @@
-<!-- Start Post Card 1 -->  
-<article class="grid-item column post-card-container">  
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+<!-- Start Post Card 1 -->
+<article class="grid-item column post-card-container">
     <!-- Post-->
     <div class="post-module">
         <!-- Thumbnail-->
-        <div class="thumbnail post-card-item_img"> 
+        <div class="thumbnail post-card-item_img">
             <?php
 			if ($settings['show_meta_data'] == "yes") {
             if (in_array('date', $settings['meta_data'])) {
@@ -12,19 +17,19 @@
                     <div class="day post-card_date_color"><?php echo get_the_date('d M, Y'); ?></div> 
                 </div>
             <?php }}
-            ?> 
+            ?>
             <?php if (has_post_thumbnail()) { ?>
                 <div class="post-card-image post-card_thumbnail">
                     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail($settings['post_image_size_size']); ?></a>
-                </div>                 
+                </div>
             <?php } else {
-                ?> 
+                ?>
                 <?php if (isset($settings['show_title']) && $settings['show_title'] == 'yes') { ?>
                     <h3 class="thumb_title"> <?php the_title(); ?> </h3>
                 <?php } ?>
                 <?php
             }
-            ?>  
+            ?>
         </div>
         <!-- Post Content-->
         <div class="post-content post-card-content-box">

@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Post Card pro -->
 <?php
 $colum = $settings['post_card_columns'];

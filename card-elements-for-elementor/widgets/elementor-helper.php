@@ -1,6 +1,9 @@
 <?php
-
 namespace Elementor;
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 // Create profile card category into elementor.
 function init_card_elements_category() {

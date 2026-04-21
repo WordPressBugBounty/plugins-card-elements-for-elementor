@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
+
 <!-- Start Testimonial Card 2 -->
 <div class="testimonial-card-style-2">
     <div class="item">
