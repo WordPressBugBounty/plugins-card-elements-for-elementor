@@ -21,15 +21,20 @@ if (!defined('ABSPATH')) {
         </div>
         <div class="listing-button">
             <a href="<?php echo esc_url($listing_btn_link['url']); ?>" <?php
-            echo esc_attr($target);
-            echo esc_attr($rel);
+            echo $target;
+            echo $rel;
             ?> class="view-listing-btn"><?php echo esc_html($settings['button_text']); ?></a>
         </div>
 
         <?php
         if ($settings['listing_whatsapp_share'] == 'yes') { ?>
             <div class="listing-card-share">
-                <a href="<?php echo esc_url("https://api.whatsapp.com/send?text=".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <?php
+                $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash($_SERVER['REQUEST_URI']) : '';
+                $request_uri = 0 === strpos($request_uri, '/') ? $request_uri : '';
+                $whatsapp_share_url = add_query_arg('text', home_url($request_uri), 'https://api.whatsapp.com/send');
+                ?>
+                <a href="<?php echo esc_url($whatsapp_share_url); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
             </div>
             <?php
         } else {

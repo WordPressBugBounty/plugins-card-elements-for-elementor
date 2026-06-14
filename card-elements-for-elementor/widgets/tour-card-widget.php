@@ -916,7 +916,15 @@ class Tour_Card_Elementor_Widget extends Widget_Base {
 
         $tour_btn_link = $settings['tour_btn_link'];
         $target = $settings['tour_btn_link']['is_external'] ? ' target="_blank"' : '';
-        $rel = $settings['tour_btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+        $rel_values = array();
+        if ($settings['tour_btn_link']['nofollow']) {
+            $rel_values[] = 'nofollow';
+        }
+        if ($settings['tour_btn_link']['is_external']) {
+            $rel_values[] = 'noopener';
+            $rel_values[] = 'noreferrer';
+        }
+        $rel = $rel_values ? ' rel="' . implode(' ', array_unique($rel_values)) . '"' : '';
 
         switch ($settings['tour_card_style']) {
             case 'tour-card-style-1':

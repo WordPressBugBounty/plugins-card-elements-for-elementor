@@ -2,9 +2,9 @@
 Contributors: techeshta, alkesh7, vastarpara, hadihirpara
 Tags: card elements module, free elementor addon, custom profile card widget, custom testimonial card widget, custom listing card widget
 Requires at least: 4.4
-Tested up to: 6.9.4
+Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.2.10
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,16 @@ Please reach out via the official [support forum](https://wordpress.org/support/
 5. Post Card - Card Style 2
 
 == Changelog ==
+
+= 1.3 =
+Release date: June 14th, 2026
+
+* Security: Improved output escaping for Post Card titles, links, and read more text.
+* Security: Hardened external links with noopener and noreferrer attributes.
+* Security: Improved WhatsApp share URL generation to avoid using the HTTP Host header.
+* Fixed: Sanitized Tour Card icon rendering by removing duplicate raw icon output.
+* Fixed: Made the activation review notice fully translatable.
+* Updated: Latest WordPress 7.0 compatibility Check
 
 = 1.2.10 =
 Release date: April 21st, 2026

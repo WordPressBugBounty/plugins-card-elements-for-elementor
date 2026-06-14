@@ -33,11 +33,21 @@ if (!defined('ABSPATH')) {
                         $this->add_render_attribute($link_key, 'target', '_blank');
                     }
 
+                    $rel_values = array();
                     if ($item['link']['nofollow']) {
-                        $this->add_render_attribute($link_key, 'rel', 'nofollow');
+                        $rel_values[] = 'nofollow';
+                    }
+
+                    if ($item['link']['is_external']) {
+                        $rel_values[] = 'noopener';
+                        $rel_values[] = 'noreferrer';
+                    }
+
+                    if ($rel_values) {
+                        $this->add_render_attribute($link_key, 'rel', implode(' ', array_unique($rel_values)));
                     }
                     ?>
-                    <a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo esc_attr( $this->get_render_attribute_string( $link_key ) ); ?>>
+                    <a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr($social . $class_animation); ?>" <?php echo $this->get_render_attribute_string( $link_key ); ?>>
                         <span class="elementor-screen-only"><?php echo esc_html(ucwords($social)); ?></span>
                         <i class="<?php echo esc_attr($item['social']); ?>"></i>
                     </a>

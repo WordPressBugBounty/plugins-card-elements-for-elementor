@@ -4,10 +4,10 @@
  * Description: Showcase useful card elements like display team profiles, testimonials and post with card style for Elementor page builder.
  * Plugin URI: https://www.techeshta.com/product/card-elements-for-elementor/
  * Author: Techeshta
- * Version: 1.2.10
+ * Version: 1.3
  * Author URI: https://www.techeshta.com
- * Elementor tested up to: 4.0.3
- * Elementor Pro tested up to: 4.0.2
+ * Elementor tested up to: 4.1.3
+ * Elementor Pro tested up to: 4.1.1
  *
  * Text Domain: card-elements-for-elementor
  */
@@ -226,7 +226,19 @@ if (!function_exists('card_elements_plugin_activation')) {
 
     function card_elements_plugin_activation() {
         $notices = get_option('card_elements_reviews', array());
-        $notices[] = '<p>Hi, you are now using <strong>Card Elements</strong> plugin. I would really appreciate it if you could give me the five star to our plugin. </p><p><a href="https://wordpress.org/support/plugin/card-elements-for-elementor/reviews/?filter=5#new-post" target="_blank" class="rating-link"><strong> Okay, you deserve it </strong></a></p>';
+        $plugin_name = '<strong>' . esc_html__('Card Elements', 'card-elements-for-elementor') . '</strong>';
+        $review_url = esc_url('https://wordpress.org/support/plugin/card-elements-for-elementor/reviews/?filter=5#new-post');
+        $notice_text = sprintf(
+            /* translators: %s: Plugin name. */
+            esc_html__('Hi, you are now using %s plugin. I would really appreciate it if you could give a five-star rating to our plugin.', 'card-elements-for-elementor'),
+            $plugin_name
+        );
+        $notices[] = sprintf(
+            '<p>%1$s</p><p><a href="%2$s" target="_blank" rel="noopener noreferrer" class="rating-link"><strong>%3$s</strong></a></p>',
+            $notice_text,
+            $review_url,
+            esc_html__('Okay, you deserve it', 'card-elements-for-elementor')
+        );
         update_option('card_elements_reviews', $notices);
 
         // Deactivate card elements for elementor (Pro) plugin than activate card elements free for elementor plugin

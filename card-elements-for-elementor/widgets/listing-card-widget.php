@@ -764,7 +764,15 @@ class Listing_Card_Elementor_Widget extends Widget_Base {
 
         $listing_btn_link = $settings['listing_btn_link'];
         $target = $settings['listing_btn_link']['is_external'] ? ' target="_blank"' : '';
-        $rel = $settings['listing_btn_link']['nofollow'] ? ' rel="nofollow"' : '';
+        $rel_values = array();
+        if ($settings['listing_btn_link']['nofollow']) {
+            $rel_values[] = 'nofollow';
+        }
+        if ($settings['listing_btn_link']['is_external']) {
+            $rel_values[] = 'noopener';
+            $rel_values[] = 'noreferrer';
+        }
+        $rel = $rel_values ? ' rel="' . implode(' ', array_unique($rel_values)) . '"' : '';
 
         $rating_data = $this->get_rating();
         $textual_rating = $rating_data[0] . '/' . $rating_data[1];

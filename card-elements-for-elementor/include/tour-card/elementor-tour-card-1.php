@@ -70,7 +70,7 @@ use Elementor\Icons_Manager; ?>
                     }
                     ?>
 
-                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo wp_kses_post( $icon2 ); ?><?php echo $icon2; ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_person']); ?> <?php esc_html_e('Persons', 'card-elements-for-elementor') ?></p></li>
+                    <li class="tour-detail-list"><p class="tour-detail-icon"><?php echo wp_kses_post( $icon2 ); ?></p><p class="tour-detail-text"><?php echo esc_html($settings['tour_person']); ?> <?php esc_html_e('Persons', 'card-elements-for-elementor') ?></p></li>
 
                     <?php
                     if ($settings['tour_guide_icon']['value']) {
@@ -85,14 +85,19 @@ use Elementor\Icons_Manager; ?>
             </div>
 
             <div class="tour-button">
-                <a href="<?php echo esc_url($tour_btn_link['url']); ?>" <?php echo esc_attr($target); echo esc_attr($rel); ?> class="view-tour-btn"><?php echo esc_html($settings['button_text']); ?></a>
+                <a href="<?php echo esc_url($tour_btn_link['url']); ?>"<?php echo $target; echo $rel; ?> class="view-tour-btn"><?php echo esc_html($settings['button_text']); ?></a>
             </div>
         </div>
 
         <?php
         if ($settings['display_whatsapp_share'] == 'yes') { ?>
             <div class="tour-card-share">
-                <a href="<?php echo esc_url("https://api.whatsapp.com/send?text=".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <?php
+                $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash($_SERVER['REQUEST_URI']) : '';
+                $request_uri = 0 === strpos($request_uri, '/') ? $request_uri : '';
+                $whatsapp_share_url = add_query_arg('text', home_url($request_uri), 'https://api.whatsapp.com/send');
+                ?>
+                <a href="<?php echo esc_url($whatsapp_share_url); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
             </div>
             <?php
         } else {

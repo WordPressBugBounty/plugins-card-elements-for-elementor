@@ -187,7 +187,7 @@ if (!function_exists('post_card_comment_count')) {
             echo '<i class="fa fa-comments" aria-hidden="true"></i>';
 
             /* translators: %s: Name of current post. Only visible to screen readers. */
-            comments_popup_link(sprintf(__('Leave a comment<span class="screen-reader-text"> on %s</span>', 'card-elements-for-elementor'), get_the_title()));
+            comments_popup_link(sprintf(__('Leave a comment<span class="screen-reader-text"> on %s</span>', 'card-elements-for-elementor'), esc_html(get_the_title())));
 
             echo '</span>';
         }

@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
             ?>
             <?php if (isset($settings['show_title']) && $settings['show_title'] == 'yes') { ?>
                 <div class="noimage">
-                    <h3 class="thumb_title"> <?php the_title(); ?> </h3>
+                    <h3 class="thumb_title"> <?php echo esc_html( get_the_title() ); ?> </h3>
                 </div>
             <?php } ?>
             <?php
@@ -46,7 +46,7 @@ if (!defined('ABSPATH')) {
                     }
                     ?>
                     <<?php echo esc_attr($tag); ?> class="title post-card_title post-card-alignment">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>
                     </<?php echo esc_attr($tag); ?>>
                 <?php } ?>
                 <?php
@@ -59,7 +59,7 @@ if (!defined('ABSPATH')) {
                         $content = get_the_content();
                     }
                     if ($settings['show_read_more'] == "yes") {
-                        $read_more = '<a href="' . esc_url(get_permalink()) . '" rel="bookmark" class="entry-read-more post-card_read-more">' . ' &nbsp;' . $settings['read_more_text'] . '</a>';
+                        $read_more = '<a href="' . esc_url(get_permalink()) . '" rel="bookmark" class="entry-read-more post-card_read-more">' . ' &nbsp;' . esc_html($settings['read_more_text']) . '</a>';
                     } else {
                         $read_more = "";
                     }
