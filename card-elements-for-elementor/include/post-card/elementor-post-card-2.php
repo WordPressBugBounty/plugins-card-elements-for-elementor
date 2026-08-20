@@ -38,12 +38,7 @@ if (!defined('ABSPATH')) {
             <div class="card_title">
                 <?php
                 if (isset($settings['show_title']) && $settings['show_title'] == 'yes') {
-                    $title_tag = sanitize_text_field($settings['title_tag']);
-                    if ($title_tag == 'h1' || $title_tag == 'h2' || $title_tag == 'h3' || $title_tag == 'h4' || $title_tag == 'h5' || $title_tag == 'h6' || $title_tag == 'div' ||  $title_tag == 'span' ||  $title_tag == 'p') {
-                        $tag = $title_tag;
-                    } else {
-                        $tag = 'h2';
-                    }
+                    $tag = card_elements_sanitize_html_tag( $settings['title_tag'] );
                     ?>
                     <<?php echo esc_attr($tag); ?> class="title post-card_title post-card-alignment">
                     <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>

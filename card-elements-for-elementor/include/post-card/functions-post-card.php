@@ -4,6 +4,24 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Restrict a user-supplied title HTML tag to a known-safe whitelist.
+ *
+ * The "Title HTML Tag" widget control is only ever offered as a select of
+ * these values, but widget settings are not guaranteed to be re-validated
+ * against that list when saved, so the value must be validated again here
+ * before it is used as a raw tag name.
+ */
+if (!function_exists('card_elements_sanitize_html_tag')) {
+
+    function card_elements_sanitize_html_tag($tag, $default = 'h2') {
+        $allowed_tags = array('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p');
+        $tag = strtolower(trim((string) $tag));
+        return in_array($tag, $allowed_tags, true) ? $tag : $default;
+    }
+
+}
+
+/**
  * Return post category array.
  */
 if (!function_exists('card_elements_post_categories')) {
