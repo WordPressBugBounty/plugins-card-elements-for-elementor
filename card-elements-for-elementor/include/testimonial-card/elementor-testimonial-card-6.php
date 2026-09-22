@@ -1,16 +1,22 @@
 <?php
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+/**
+ * Testimonial Card 6 - Elementor widget template.
+ *
+ * @package Card_Elements_For_Elementor
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 ?>
 
 <div class="container">
-    <div class="testimonial6">
-        <div class="pic">
-            <img src="<?php echo esc_url($settings['profile_image']['url']); ?>">
-            </div>
-            <p class="description"><?php echo esc_attr($settings['testimonial_description']); ?></p>
-            <h3 class="name"><?php echo esc_attr($settings['name']);?></h3>
-            <span class="post"><?php echo esc_attr($settings['position']); ?></span>
-    </div>
+	<div class="testimonial6">
+		<div class="pic">
+			<img src="<?php echo esc_url( $settings['profile_image']['url'] ); ?>">
+			</div>
+			<p class="description"><?php echo esc_attr( $settings['testimonial_description'] ); ?></p>
+			<h3 class="name"><?php echo esc_attr( $settings['name'] ); ?></h3>
+			<span class="post"><?php echo esc_attr( $settings['position'] ); ?></span>
+	</div>
 </div>

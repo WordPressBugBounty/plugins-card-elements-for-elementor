@@ -4,7 +4,7 @@ Tags: card elements module, free elementor addon, custom profile card widget, cu
 Requires at least: 4.4
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,7 +88,7 @@ We're active for any support issues and feature suggestions. So, I hope you will
 
 ### Like Card Elements for Elementor Plugin?
 
-- Don't forget to rate us on [WordPress](https://wordpress.org/support/plugin/card-elements-for-elementor/reviews/?rate=5#new-post) :)
+- Don't forget to rate us on [WordPress](https://wordpress.org/support/plugin/card-elements-for-elementor/reviews/) :)
 
 
 == Installation ==
@@ -134,6 +134,15 @@ Please reach out via the official [support forum](https://wordpress.org/support/
 5. Post Card - Card Style 2
 
 == Changelog ==
+
+= 2.0 =
+Release date: September 22nd, 2026
+
+* Security: Manual security audit - hardened WhatsApp share URL handling on the Listing Card and Tour Card widgets with additional input sanitization, and removed a pre-filtered 5-star-review link in favor of a neutral link to the reviews page.
+* Fixed: Resolved all PHPCS (WordPress Coding Standards) issues across the plugin.
+* Fixed: Removed a duplicate style key in the Testimonial Card widget that could silently override the selected style.
+* Updated: Latest WordPress 7.1 compatibility Check
+* Updated: Latest Elementor 4.2.4 compatibility Check
 
 = 1.3.1 =
 Release date: August 20th, 2026

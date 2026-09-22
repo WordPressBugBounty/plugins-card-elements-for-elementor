@@ -4,28 +4,36 @@
  * Description: Showcase useful card elements like display team profiles, testimonials and post with card style for Elementor page builder.
  * Plugin URI: https://www.techeshta.com/product/card-elements-for-elementor/
  * Author: Techeshta
- * Version: 1.3.1
+ * Version: 2.0
  * Author URI: https://www.techeshta.com
- * Elementor tested up to: 4.2.3
+ * Elementor tested up to: 4.2.4
  * Elementor Pro tested up to: 4.1.1
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
  * Text Domain: card-elements-for-elementor
+ *
+ * @package Card_Elements_For_Elementor
  */
-if (!defined('ABSPATH'))
-    exit; // Exit if accessed directly
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
-// Load text domain
-add_action( 'plugins_loaded', function() {
-    load_plugin_textdomain( 'card-elements-for-elementor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-});
+// Load text domain.
+add_action(
+	'plugins_loaded',
+	function () {
+		load_plugin_textdomain( 'card-elements-for-elementor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
+);
 
 /**
  * Define Plugin URL and Directory Path
  */
-define('CARD_ELEMENTS_ELEMENTOR_URL', plugins_url('/', __FILE__));  // Define Plugin URL
-define('CARD_ELEMENTS_ELEMENTOR_PATH', plugin_dir_path(__FILE__));  // Define Plugin Directory Path
-define('CEE_DOMAIN', 'card-elements-for-elementor');
+define( 'CARD_ELEMENTS_ELEMENTOR_URL', plugins_url( '/', __FILE__ ) );  // Define Plugin URL.
+define( 'CARD_ELEMENTS_ELEMENTOR_PATH', plugin_dir_path( __FILE__ ) );  // Define Plugin Directory Path.
+define( 'CEE_DOMAIN', 'card-elements-for-elementor' );
 
 /*
  * Load the plugin Category
@@ -35,244 +43,297 @@ require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/elementor-helper.php';
 /*
  * Register the widgets file in elementor widgets.
  */
-if (!function_exists('card_elements_widget_register')) {
+if ( ! function_exists( 'card_elements_widget_register' ) ) {
 
-    function card_elements_widget_register() {
-        require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/profile-card-widget.php';
-        require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/testimonial-card-widget.php';
-        require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/post-card-widget.php';
-        require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'include/post-card/functions-post-card.php';
-        require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/tour-card-widget.php';
-        require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/listing-card-widget.php';
-    }
+	/**
+	 * Load the widget classes once Elementor has registered its own widgets.
+	 *
+	 * @return void
+	 */
+	function card_elements_widget_register() {
+		require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/profile-card-widget.php';
+		require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/testimonial-card-widget.php';
+		require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/post-card-widget.php';
+		require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'include/post-card/functions-post-card.php';
+		require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/tour-card-widget.php';
+		require_once CARD_ELEMENTS_ELEMENTOR_PATH . 'widgets/listing-card-widget.php';
+	}
 
 }
-add_action('elementor/widgets/widgets_registered', 'card_elements_widget_register');
+add_action( 'elementor/widgets/widgets_registered', 'card_elements_widget_register' );
 
 /*
  * Load profile card scripts and styles
  * @since v1.0.0
  */
-if (!function_exists('card_elements_widget_script_register')) {
+if ( ! function_exists( 'card_elements_widget_script_register' ) ) {
 
-    function card_elements_widget_script_register() {
-	// Register and call Common style
-	wp_register_style('cee-common-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/common-card-style.css', array(), '1.0', false);
-        wp_enqueue_style('cee-common-card-style');
+	/**
+	 * Register and enqueue the front-end card styles.
+	 *
+	 * @return void
+	 */
+	function card_elements_widget_script_register() {
+		// Register and call Common style.
+		wp_register_style( 'cee-common-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/common-card-style.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'cee-common-card-style' );
 
-	// Register and call Profile card style
-	wp_register_style('cee-profile-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/profile-card-style.css', array(), '1.0', false);
-        wp_enqueue_style('cee-profile-card-style');
+		// Register and call Profile card style.
+		wp_register_style( 'cee-profile-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/profile-card-style.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'cee-profile-card-style' );
 
-	// Register and call Testimonial card style
-	wp_register_style('cee-testimonial-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/testimonial-card-style.css',array(), '1.0', false);
-        wp_enqueue_style('cee-testimonial-card-style');
+		// Register and call Testimonial card style.
+		wp_register_style( 'cee-testimonial-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/testimonial-card-style.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'cee-testimonial-card-style' );
 
-	// Register and call Post card style
-	wp_register_style('cee-post-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/post-card-style.css', array(), '1.0', false);
-        wp_enqueue_style('cee-post-card-style');
+		// Register and call Post card style.
+		wp_register_style( 'cee-post-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/post-card-style.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'cee-post-card-style' );
 
-        // Register and call Tour card style
-        wp_register_style('cep-tour-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/tour-card-style.css', array(), '1.0', false);
-        wp_enqueue_style('cep-tour-card-style');
+		// Register and call Tour card style.
+		wp_register_style( 'cep-tour-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/tour-card-style.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'cep-tour-card-style' );
 
-        // Register and call Listing card style
-        wp_register_style('cep-listing-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/listing-card-style.css', array(), '1.0', false);
-        wp_enqueue_style('cep-listing-card-style');
+		// Register and call Listing card style.
+		wp_register_style( 'cep-listing-card-style', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/listing-card-style.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'cep-listing-card-style' );
 
-        // Register and call Font Awesome style
-        wp_register_style('cee-font-awesome', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/font-awesome.css', array(), 1.0);
-        wp_enqueue_style('cee-font-awesome');
+		// Register and call Font Awesome style.
+		wp_register_style( 'cee-font-awesome', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/font-awesome.css', array(), '1.0' );
+		wp_enqueue_style( 'cee-font-awesome' );
 
-        if (!wp_style_is('font-awesome-5-all-css', 'enqueued')) {
-            wp_register_style('font-awesome-5-all-css', ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/all.min.css', array());
-            wp_enqueue_style('font-awesome-5-all-css');
-        }
+		if ( ! wp_style_is( 'font-awesome-5-all-css', 'enqueued' ) ) {
+			wp_register_style( 'font-awesome-5-all-css', ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/all.min.css', array(), '1.0' );
+			wp_enqueue_style( 'font-awesome-5-all-css' );
+		}
 
-        if (!wp_style_is('elementor-frontend-css', 'enqueued')) {
-            wp_enqueue_style( 'elementor-frontend-css', ELEMENTOR_ASSETS_URL . 'css/frontend.min.css', array() );
-            wp_enqueue_style('elementor-frontend-css');
-        }
-    }
+		if ( ! wp_style_is( 'elementor-frontend-css', 'enqueued' ) ) {
+			wp_enqueue_style( 'elementor-frontend-css', ELEMENTOR_ASSETS_URL . 'css/frontend.min.css', array(), '1.0' );
+			wp_enqueue_style( 'elementor-frontend-css' );
+		}
+	}
 
 }
-add_action('wp_enqueue_scripts', 'card_elements_widget_script_register');
+add_action( 'wp_enqueue_scripts', 'card_elements_widget_script_register' );
 
 /*
 * Load elementor editor script and styles
 */
-if (!function_exists('cee_elements_widget_script_backend')) {
+if ( ! function_exists( 'cee_elements_widget_script_backend' ) ) {
 
-    function cee_elements_widget_script_backend() {
-        wp_register_style('cee-font-awesome', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/font-awesome.css', array(), 1.0);
-        wp_enqueue_style('cee-font-awesome');
+	/**
+	 * Register and enqueue the card styles needed by the Elementor editor preview.
+	 *
+	 * @return void
+	 */
+	function cee_elements_widget_script_backend() {
+		wp_register_style( 'cee-font-awesome', CARD_ELEMENTS_ELEMENTOR_URL . 'assets/css/font-awesome.css', array(), '1.0' );
+		wp_enqueue_style( 'cee-font-awesome' );
 
-        if (!wp_style_is('font-awesome-5-all-css', 'enqueued')) {
-            wp_register_style('font-awesome-5-all-css', ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/all.min.css', array());
-            wp_enqueue_style('font-awesome-5-all-css');
-        }
+		if ( ! wp_style_is( 'font-awesome-5-all-css', 'enqueued' ) ) {
+			wp_register_style( 'font-awesome-5-all-css', ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/all.min.css', array(), '1.0' );
+			wp_enqueue_style( 'font-awesome-5-all-css' );
+		}
 
-        if (!wp_style_is('elementor-frontend-css', 'enqueued')) {
-            wp_enqueue_style( 'elementor-frontend-css', ELEMENTOR_ASSETS_URL . 'css/frontend.min.css', array() );
-            wp_enqueue_style('elementor-frontend-css');
-        }
-    }
+		if ( ! wp_style_is( 'elementor-frontend-css', 'enqueued' ) ) {
+			wp_enqueue_style( 'elementor-frontend-css', ELEMENTOR_ASSETS_URL . 'css/frontend.min.css', array(), '1.0' );
+			wp_enqueue_style( 'elementor-frontend-css' );
+		}
+	}
 
 }
-add_action('elementor/editor/after_enqueue_styles', 'cee_elements_widget_script_backend');
+add_action( 'elementor/editor/after_enqueue_styles', 'cee_elements_widget_script_backend' );
 
 /**
  * Check current version of Elementor
  */
-if (!function_exists('card_elements_plugin_load')) {
+if ( ! function_exists( 'card_elements_plugin_load' ) ) {
 
-    function card_elements_plugin_load() {
-        // Load plugin textdomain
-        load_plugin_textdomain('card-elements-for-elementor', false, dirname(plugin_basename(__FILE__)) . '/languages');
+	/**
+	 * Check the current Elementor version and bail out with an admin notice if it is missing or outdated.
+	 *
+	 * @return void
+	 */
+	function card_elements_plugin_load() {
+		// Load plugin textdomain.
+		load_plugin_textdomain( 'card-elements-for-elementor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
-        // Add image size for post card
-        add_image_size('post_card_thumb', 680, 460, true);
+		// Add image size for post card.
+		add_image_size( 'post_card_thumb', 680, 460, true );
 
-        if (!did_action('elementor/loaded')) {
-            add_action('admin_notices', 'card_elements_widget_fail_load');
-            return;
-        }
-        $elementor_version_required = '1.1.2';
-        if (!version_compare(ELEMENTOR_VERSION, $elementor_version_required, '>=')) {
-            add_action('admin_notices', 'card_elements_elementor_update_notice');
-            return;
-        }
-    }
+		if ( ! did_action( 'elementor/loaded' ) ) {
+			add_action( 'admin_notices', 'card_elements_widget_fail_load' );
+			return;
+		}
+		$elementor_version_required = '1.1.2';
+		if ( ! version_compare( ELEMENTOR_VERSION, $elementor_version_required, '>=' ) ) {
+			add_action( 'admin_notices', 'card_elements_elementor_update_notice' );
+			return;
+		}
+	}
 
 }
-add_action('plugins_loaded', 'card_elements_plugin_load');
+add_action( 'plugins_loaded', 'card_elements_plugin_load' );
 
 /**
  * This notice will appear if Elementor is not installed or activated or both
  */
-if (!function_exists('card_elements_widget_fail_load')) {
+if ( ! function_exists( 'card_elements_widget_fail_load' ) ) {
 
-    function card_elements_widget_fail_load() {
-        $screen = get_current_screen();
-        if (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) {
-            return;
-        }
+	/**
+	 * Print an admin notice when Elementor is not installed or not activated.
+	 *
+	 * @return void
+	 */
+	function card_elements_widget_fail_load() {
+		$screen = get_current_screen();
+		if ( isset( $screen->parent_file ) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id ) {
+			return;
+		}
 
-        $plugin = 'elementor/elementor.php';
+		$plugin = 'elementor/elementor.php';
 
-        if (card_elements_elementor_installed()) {
-            if (!current_user_can('activate_plugins')) {
-                return;
-            }
-            $activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
+		if ( card_elements_elementor_installed() ) {
+			if ( ! current_user_can( 'activate_plugins' ) ) {
+				return;
+			}
+			$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
 
-            $message = '<p><strong>' . esc_html__('Card Elements for Elementor', 'card-elements-for-elementor') . '</strong>' . esc_html__(' widgets not working because you need to activate the Elementor plugin.', 'card-elements-for-elementor') . '</p>';
-            $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, esc_html__('Activate Elementor Now', 'card-elements-for-elementor')) . '</p>';
-        } else {
-            if (!current_user_can('install_plugins')) {
-                return;
-            }
+			$message  = '<p><strong>' . esc_html__( 'Card Elements for Elementor', 'card-elements-for-elementor' ) . '</strong>' . esc_html__( ' widgets not working because you need to activate the Elementor plugin.', 'card-elements-for-elementor' ) . '</p>';
+			$message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $activation_url, esc_html__( 'Activate Elementor Now', 'card-elements-for-elementor' ) ) . '</p>';
+		} else {
+			if ( ! current_user_can( 'install_plugins' ) ) {
+				return;
+			}
 
-            $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor');
+			$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
 
-            $message = '<p><strong>' . esc_html__('Card Elements', 'card-elements-for-elementor') . '</strong>' . esc_html__('widgets are not working because you need to install the Elementor plugin', 'card-elements-for-elementor') . '</p>';
-            $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__('Install Elementor Now', 'card-elements-for-elementor')) . '</p>';
-        }
+			$message  = '<p><strong>' . esc_html__( 'Card Elements', 'card-elements-for-elementor' ) . '</strong>' . esc_html__( 'widgets are not working because you need to install the Elementor plugin', 'card-elements-for-elementor' ) . '</p>';
+			$message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__( 'Install Elementor Now', 'card-elements-for-elementor' ) ) . '</p>';
+		}
 
-        echo '<div class="error"><p>' . wp_kses_post($message) . '</p></div>';
-    }
+		echo '<div class="error"><p>' . wp_kses_post( $message ) . '</p></div>';
+	}
 
 }
 
 /**
  * Display admin notice for Elementor update if Elementor version is old
  */
-if (!function_exists('card_elements_elementor_update_notice')) {
+if ( ! function_exists( 'card_elements_elementor_update_notice' ) ) {
 
-    function card_elements_elementor_update_notice() {
-        if (!current_user_can('update_plugins')) {
-            return;
-        }
+	/**
+	 * Print an admin notice when the installed Elementor version is too old.
+	 *
+	 * @return void
+	 */
+	function card_elements_elementor_update_notice() {
+		if ( ! current_user_can( 'update_plugins' ) ) {
+			return;
+		}
 
-        $file_path = 'elementor/elementor.php';
+		$file_path = 'elementor/elementor.php';
 
-        $upgrade_link = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=') . $file_path, 'upgrade-plugin_' . $file_path);
-        $message = '<p><strong>' . esc_html__('Card Elements', 'card-elements-for-elementor') . '</strong>' . esc_html__('widgets are not working because you are using an old version of Elementor.', 'card-elements-for-elementor') . '</p>';
-        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, esc_html__('Update Elementor Now', 'card-elements-for-elementor')) . '</p>';
-        echo '<div class="error">' . wp_kses_post($message) . '</div>';
-    }
+		$upgrade_link = wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $file_path, 'upgrade-plugin_' . $file_path );
+		$message      = '<p><strong>' . esc_html__( 'Card Elements', 'card-elements-for-elementor' ) . '</strong>' . esc_html__( 'widgets are not working because you are using an old version of Elementor.', 'card-elements-for-elementor' ) . '</p>';
+		$message     .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $upgrade_link, esc_html__( 'Update Elementor Now', 'card-elements-for-elementor' ) ) . '</p>';
+		echo '<div class="error">' . wp_kses_post( $message ) . '</div>';
+	}
 
 }
 
 /**
  * Action when plugin installed
  */
-if (!function_exists('card_elements_elementor_installed')) {
+if ( ! function_exists( 'card_elements_elementor_installed' ) ) {
 
-    function card_elements_elementor_installed() {
+	/**
+	 * Check whether the Elementor plugin is installed (regardless of activation state).
+	 *
+	 * @return bool
+	 */
+	function card_elements_elementor_installed() {
 
-        $file_path = 'elementor/elementor.php';
-        $installed_plugins = get_plugins();
+		$file_path         = 'elementor/elementor.php';
+		$installed_plugins = get_plugins();
 
-        return isset($installed_plugins[$file_path]);
-    }
+		return isset( $installed_plugins[ $file_path ] );
+	}
 
 }
 
 /**
  * Add reviews metadata  on plugin activation
  */
-if (!function_exists('card_elements_plugin_activation')) {
+if ( ! function_exists( 'card_elements_plugin_activation' ) ) {
 
-    function card_elements_plugin_activation() {
-        $notices = get_option('card_elements_reviews', array());
-        $plugin_name = '<strong>' . esc_html__('Card Elements', 'card-elements-for-elementor') . '</strong>';
-        $review_url = esc_url('https://wordpress.org/support/plugin/card-elements-for-elementor/reviews/?filter=5#new-post');
-        $notice_text = sprintf(
-            /* translators: %s: Plugin name. */
-            esc_html__('Hi, you are now using %s plugin. I would really appreciate it if you could give a five-star rating to our plugin.', 'card-elements-for-elementor'),
-            $plugin_name
-        );
-        $notices[] = sprintf(
-            '<p>%1$s</p><p><a href="%2$s" target="_blank" rel="noopener noreferrer" class="rating-link"><strong>%3$s</strong></a></p>',
-            $notice_text,
-            $review_url,
-            esc_html__('Okay, you deserve it', 'card-elements-for-elementor')
-        );
-        update_option('card_elements_reviews', $notices);
+	/**
+	 * Queue a one-time review-request notice and deactivate the Pro plugin on activation.
+	 *
+	 * @return void
+	 */
+	function card_elements_plugin_activation() {
+		$notices     = get_option( 'card_elements_reviews', array() );
+		$plugin_name = '<strong>' . esc_html__( 'Card Elements', 'card-elements-for-elementor' ) . '</strong>';
+		// Links to the general reviews page rather than a pre-filtered 5-star
+		// submission form, per the WordPress.org plugin guidelines.
+		$review_url  = esc_url( 'https://wordpress.org/support/plugin/card-elements-for-elementor/reviews/' );
+		$notice_text = sprintf(
+			/* translators: %s: Plugin name. */
+			esc_html__( 'Hi, you are now using %s plugin. I would really appreciate it if you could leave a rating and review for our plugin.', 'card-elements-for-elementor' ),
+			$plugin_name
+		);
+		$notices[] = sprintf(
+			'<p>%1$s</p><p><a href="%2$s" target="_blank" rel="noopener noreferrer" class="rating-link"><strong>%3$s</strong></a></p>',
+			$notice_text,
+			$review_url,
+			esc_html__( 'Okay, you deserve it', 'card-elements-for-elementor' )
+		);
+		update_option( 'card_elements_reviews', $notices );
 
-        // Deactivate card elements for elementor (Pro) plugin than activate card elements free for elementor plugin
-        deactivate_plugins('card-elements-pro-for-elementor/card-elements-pro-for-elementor.php');
-    }
+		// Deactivate card elements for elementor (Pro) plugin than activate card elements free for elementor plugin.
+		deactivate_plugins( 'card-elements-pro-for-elementor/card-elements-pro-for-elementor.php' );
+	}
 
 }
-register_activation_hook(__FILE__, 'card_elements_plugin_activation');
+register_activation_hook( __FILE__, 'card_elements_plugin_activation' );
 
 /**
  * Display admin notice on Card Elements activation for ratings
  */
-if (!function_exists('card_elements_reviews_notices')) {
+if ( ! function_exists( 'card_elements_reviews_notices' ) ) {
 
-    function card_elements_reviews_notices() {
-        if ($notices = get_option('card_elements_reviews')) {
-            foreach ($notices as $notice) {
-                echo "<div class='notice notice-success is-dismissible'><p>" . wp_kses_post($notice) . "</p></div>";
-            }
-            delete_option('card_elements_reviews');
-        }
-    }
+	/**
+	 * Print any queued review-request admin notices, then clear them.
+	 *
+	 * @return void
+	 */
+	function card_elements_reviews_notices() {
+		$notices = get_option( 'card_elements_reviews' );
+		if ( $notices ) {
+			foreach ( $notices as $notice ) {
+				echo "<div class='notice notice-success is-dismissible'><p>" . wp_kses_post( $notice ) . '</p></div>';
+			}
+			delete_option( 'card_elements_reviews' );
+		}
+	}
 
-    add_action('admin_notices', 'card_elements_reviews_notices');
+	add_action( 'admin_notices', 'card_elements_reviews_notices' );
 }
 
 /**
  * Remove reviews metadata on plugin deactivation.
  */
-if (!function_exists('card_elements_plugin_deactivation')) {
+if ( ! function_exists( 'card_elements_plugin_deactivation' ) ) {
 
-    function card_elements_plugin_deactivation() {
-        delete_option('card_elements_reviews');
-    }
+	/**
+	 * Remove queued review-request notices on deactivation.
+	 *
+	 * @return void
+	 */
+	function card_elements_plugin_deactivation() {
+		delete_option( 'card_elements_reviews' );
+	}
 
 }
-register_deactivation_hook(__FILE__, 'card_elements_plugin_deactivation');
+register_deactivation_hook( __FILE__, 'card_elements_plugin_deactivation' );
